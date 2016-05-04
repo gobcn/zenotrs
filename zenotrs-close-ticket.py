@@ -40,7 +40,7 @@ body = "Event: " + args.summary + "\n" \
      + "Reopen: " + args.reopenurl
 
 a = Article(Subject=subject, Body=body, Charset='UTF8',
-            MimeType='text/plain', TimeUnit='0')
+            MimeType='text/plain', TimeUnit='1')
 df1 = DynamicField(Name=args.eventfield, Value=args.eventid, Operator="Equals")
 # t_id, t_number = client.ticket_create(t, a)
 try:
