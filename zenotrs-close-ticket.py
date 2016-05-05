@@ -1,4 +1,4 @@
-#!/bin/python
+#!/opt/zenoss/bin/python
 from otrs.client import GenericTicketConnector
 from otrs.objects import Ticket, Article, DynamicField, Attachment
 
@@ -28,13 +28,20 @@ client = GenericTicketConnector(server_uri, webservice_name)
 
 client.user_session_register(args.otrsuser,args.otrspass)
 
-subject = "[zenoss] CLEAR: " + args.device + " " + args.clearsummary
+# clearsummary may have extra quotation marks around it when called by zenoss
+
+clearsummary = args.clearsummary
+if clearsummary.startswith('"') and clearsummary.endswith('"'):
+   clearsummary = clearsummary[1:-1]
+
+subject = "[zenoss] CLEAR: " + args.device + " " + clearsummary
 body = "Event: " + args.summary + "\n" \
      + "Cleared by: " + args.clearid + "\n" \
+     + "Clear Summary: " + clearsummary + "\n" \
      + "At: " + args.statechange + "\n" \
      + "Device: " + args.device + "\n" \
      + "Component: " + args.component + "\n" \
-     + "Severity: " + args.severity + "\n" \
+     + "Severity: " + args.severity + "\n\n" \
      + "Message: \n\n" \
      + args.message + "\n\n\n" \
      + "Reopen: " + args.reopenurl

@@ -1,4 +1,4 @@
-#!/bin/python
+#!/opt/zenoss/bin/python
 from otrs.client import GenericTicketConnector
 from otrs.objects import Ticket, Article, DynamicField, Attachment
 
@@ -34,7 +34,8 @@ client = GenericTicketConnector(server_uri, webservice_name)
 client.user_session_register(args.otrsuser,args.otrspass)
 
 subject = "[zenoss] " + args.device + " " + args.summary
-body = "Device: " + args.device + "\n" \
+body = "Summary: " + args.summary + "\n" \
+     + "Device: " + args.device + "\n" \
      + "Component: " + args.component + "\n" \
      + "Severity: " + args.severity + "\n" \
      + "Time: " + args.time + "\n\n" \
@@ -43,7 +44,7 @@ body = "Device: " + args.device + "\n" \
      + "Event Detail: " + args.eventurl + "\n" \
      + "Acknowledge: " + args.ackurl + "\n" \
      + "Close: " + args.closeurl + "\n" \
-     + "Device Events " + args.eventsurl 
+     + "Device Events: " + args.eventsurl 
 if (args.severity == 'Critical'):
    priority='5 very high'
 elif (args.severity == 'Error'):

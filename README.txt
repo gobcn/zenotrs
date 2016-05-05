@@ -15,7 +15,7 @@ Zenoss command trigger to create ticket in OTRS (adjust as needed for your setup
 
 Zenoss clear command trigger to close ticket in OTRS (adjust as needed for your setup):
 
-/home/zenoss/zenotrs/zenotrs-close-ticket.py --eventfield TicketFreeText2 --eventid ${evt/evid} --device "${evt/device_title}" --component "${evt/component}" --severity "${evt/severityString}" --clearid "${evt/clearid}" --statechange "${evt/stateChange}" --clearsummary ${clearEvt/summary} --summary ${evt/summary} --message ${evt/message} --reopenurl "${urls/reopenUrl}" http://otrs.mycompany.com zenotrs mystrongpassword
+/home/zenoss/zenotrs/zenotrs-close-ticket.py --eventfield TicketFreeText2 --eventid ${evt/evid} --device "${evt/device_title}" --component "${evt/component}" --severity "${evt/severityString}" --clearid "${evt/clearid}" --statechange "${evt/stateChange}" --clearsummary '${clearEvt/summary}' --summary ${evt/summary} --message ${evt/message} --reopenurl "${urls/reopenUrl}" http://otrs.mycompany.com zenotrs mystrongpassword
 
 
 
