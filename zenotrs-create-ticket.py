@@ -1,4 +1,4 @@
-#!/opt/zenoss/bin/python
+#!/usr/bin/env python
 from otrs.client import GenericTicketConnector
 from otrs.objects import Ticket, Article, DynamicField, Attachment
 
@@ -44,7 +44,7 @@ body = "Summary: " + args.summary + "\n" \
      + "Event Detail: " + args.eventurl + "\n" \
      + "Acknowledge: " + args.ackurl + "\n" \
      + "Close: " + args.closeurl + "\n" \
-     + "Device Events: " + args.eventsurl 
+     + "Device Events: " + args.eventsurl
 if (args.severity == 'Critical'):
    priority='5 very high'
 elif (args.severity == 'Error'):

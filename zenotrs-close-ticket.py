@@ -1,4 +1,4 @@
-#!/opt/zenoss/bin/python
+#!/usr/bin/env python
 from otrs.client import GenericTicketConnector
 from otrs.objects import Ticket, Article, DynamicField, Attachment
 
@@ -60,4 +60,3 @@ try:
       client.ticket_update(ticket=t_upd, ticket_id=t_id)
 except:
    print "Cannot update ticket - ticket with matching event id not found!"
-
